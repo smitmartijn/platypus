@@ -160,7 +160,7 @@
         }
       },
       "put": {
-        "description": "Update an individual segment ID Pool",
+        "description": "Update an individual segment ID Pool\n\n**Request Body:**\n\n&lt;segmentRange&gt;\n\n&nbsp;&lt;end&gt;3000&lt;/end&gt;\n\n&nbsp;&lt;name&gt;&lt;/name&gt;\n\n&nbsp;&lt;desc&gt;&lt;/desc&gt;\n\n&lt;/segmentRang&gt;",
         "tags": [
           "2.0"
         ],
@@ -176,6 +176,11 @@
             "x-is-map": false,
             "type": "string",
             "description": "A valid segment Pool Id"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true
           }
         ],
         "responses": {
@@ -228,15 +233,22 @@
         }
       },
       "post": {
-        "description": "Add a segment ID Pool",
+        "description": "Add a segment ID Pool\n\n**Request Body:**\n\n&lt;segmentRange&gt;\n\n&nbsp;&lt;name&gt;name&lt;/name&gt; &lt;!-- Required --&gt;\n\n&nbsp;&lt;desc&gt;description&lt;/desc&gt; &lt;!-- Optional --&gt;\n\n&nbsp;&lt;begin&gt;5000&lt;/begin&gt; &lt;!-- Required. Minimum value is 5000 --&gt;\n\n&nbsp;&lt;end&gt;65535&lt;/end&gt; &lt;!-- Required. Maximum value is 16777216--&gt;\n\n&lt;/segmentRange&gt;",
         "tags": [
           "2.0"
         ],
         "operationId": "Create_vdnSegmentPoolAdd_",
         "produces": [
-          "application/json"
+          "application/xml"
         ],
-        "parameters": [],
+        "consumes": [ "application/xml" ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -271,7 +283,7 @@
         }
       },
       "put": {
-        "description": "Update an individual Multicast range Pool",
+        "description": "Update an individual Multicast range Pool\n\n**Request Body:**\n\n&lt;segmentRange&gt;\n\n&nbsp;&lt;end&gt;3000&lt;/end&gt;\n\n&nbsp;&lt;name&gt;&lt;/name&gt;\n\n&nbsp;&lt;desc&gt;&lt;/desc&gt;\n\n&lt;/segmentRang&gt;",
         "tags": [
           "2.0"
         ],
@@ -287,6 +299,11 @@
             "x-is-map": false,
             "type": "string",
             "description": "A valid multicast Pool range Id"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true
           }
         ],
         "responses": {
@@ -339,7 +356,7 @@
         }
       },
       "post": {
-        "description": "Adds a multicast range for logical switches",
+        "description": "Adds a multicast range for logical switches\n\n**Request Body:**\n\n&lt;multicastRange&gt;\n\n&nbsp;&lt;name&gt;name&lt;/name&gt;\n\n&nbsp;&lt;desc&gt;description&lt;/desc&gt;\n\n&nbsp;&lt;begin&gt;239.1.1.1&lt;/begin&gt;\n\n&nbsp;&lt;end&gt;239.3.3.3&lt;/end&gt;\n\n&lt;/multicastRange&gt;",
         "tags": [
           "2.0"
         ],
@@ -347,7 +364,13 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -4527,7 +4550,7 @@
         ],
         "operationId": "Get_dlpPolicyAsXML_",
         "produces": [
-          "application/json"
+          "application/xml"
         ],
         "parameters": [
           {
@@ -7514,7 +7537,7 @@
             "required": false,
             "x-is-map": false,
             "type": "string",
-            "description": "source/destination can contain IPv4/v6 address or vm‐id"
+            "description": "source/destination can contain IPv4/v6 address or vm-id"
           },
           {
             "name": "ruleId",
